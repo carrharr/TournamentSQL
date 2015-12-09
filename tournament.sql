@@ -25,7 +25,6 @@ CREATE TABLE matches (
   --match_ends time NOT NULL,
   winner INT references players (id),
   loser INT references players (id),
-  round INT,
   bye boolean
 );
 

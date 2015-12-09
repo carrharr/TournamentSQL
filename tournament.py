@@ -91,9 +91,10 @@ def reportMatch(winner, loser):
     """
 
     with myCursor() as cursor:
-        query = "INSERT INTO matches (winner, loser) values (%s, %s) SET round = round +1;"
+        query = "INSERT INTO matches (winner, loser) values (%s, %s);"
         parameters = (winner, loser)
         cursor.execute(query, parameters)
+
 
 def swissPairings():
     """Returns a list of pairs of players for the next round of a match.
