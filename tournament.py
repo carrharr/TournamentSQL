@@ -91,7 +91,7 @@ def reportMatch(winner, loser):
     """
 
     with myCursor() as cursor:
-        query = "INSERT INTO matches (winner, loser) values (%s, %s);"
+        query = "INSERT INTO matches (winner, loser) values (%s, %s) SET round = round +1;"
         parameters = (winner, loser)
         cursor.execute(query, parameters)
 
@@ -110,3 +110,7 @@ def swissPairings():
         id2: the second player's unique id
         name2: the second player's name
     """
+    with myCursor() as cursor:
+        query = ""
+        parameters= ""
+        cursor.execute(query, parameters)
