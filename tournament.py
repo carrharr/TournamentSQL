@@ -95,7 +95,6 @@ def reportMatch(winner, loser):
         parameters = (winner, loser)
         cursor.execute(query, parameters)
 
-
 def swissPairings():
     """Returns a list of pairs of players for the next round of a match.
 
@@ -111,7 +110,16 @@ def swissPairings():
         id2: the second player's unique id
         name2: the second player's name
     """
-    with myCursor() as cursor:
-        query = ""
-        parameters= ""
-        cursor.execute(query, parameters)
+    standings = playerStandings()
+    num = countPlayers()
+    pairings = []
+    if (num > 0):
+        for i in range (num):
+            if (i % 2 == 0):
+                id1 = standings[i][0]
+                name1 = standings[i][1]
+                id2 = standings[i + 1][0]
+                name2 = standings[i + 1][1]
+                pair = (id1, name1, id2, name2)
+                pairings.append(pair)
+    return pairings
