@@ -13,7 +13,8 @@ def connect():
 
 @contextlib.contextmanager
 def myCursor():
-    """Function to consolidate db transaction code."""
+    """Instead of repeating myself a lot, using contextlib and having the basic
+    cursor connection and commit inside a functions seems more reasonable."""
     conn = connect()
     cursor = conn.cursor()
     try:
@@ -76,7 +77,7 @@ def playerStandings():
         matches: the number of matches the player has played
     """
     with myCursor() as cursor:
-        query = "SELECT id, name, wins, matches_played FROM standings;"
+        query = "SELECT id, name, wins, matches_played FROM standings ORDER BY wins DESC;"
         cursor.execute(query)
         standings = cursor.fetchall()
         return standings

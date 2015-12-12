@@ -37,5 +37,5 @@ count(match_winner.winner) + count(match_loser.loser) as matches_played
 FROM players
 LEFT JOIN matches match_winner ON players.id = match_winner.winner
 LEFT JOIN matches match_loser ON players.id = match_loser.loser
-GROUP BY players.id
+GROUP BY players.id ORDER BY standings.wins DESC
 );
