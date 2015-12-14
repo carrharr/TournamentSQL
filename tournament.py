@@ -77,7 +77,7 @@ def playerStandings():
         matches: the number of matches the player has played
     """
     with myCursor() as cursor:
-        query = "SELECT id, name, wins, matches_played FROM standings ORDER BY wins DESC;"
+        query = "SELECT id, name, wins, matches_played FROM standings;"
         cursor.execute(query)
         standings = cursor.fetchall()
         return standings

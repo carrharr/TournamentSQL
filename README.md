@@ -14,7 +14,7 @@ Vagrant conf is available at : https://www.udacity.com/wiki/ud088/vagrant
 3.- Inside vagrant do:
     $ cd /vagrant/TournamentSQL (GO TO FOLDER WHERE TOURNAMENT IS)
     $ psql                      (open PostgreSQL)
-    $ /i tournament.sql         (execute database script)
+    $ \i tournament.sql         (execute database script)
     $ \q                        (quit psql)
 4.- Your database is ready, open python to interact with it, then:
     $>>> from tournament import *
